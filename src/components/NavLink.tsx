@@ -20,7 +20,7 @@ const NavLink = ({
     <Link
       href={linkRoute}
       role="button"
-      className={className + " btn shadow-sm"}
+      className={className + " btn shadow nav-btn"}
       style={{
         backgroundColor: styleMap.get(btnStyle),
         color: linkText === "Book Now" ? "#FFFF" : "#000000",

@@ -14,7 +14,13 @@ const NavBar = () => {
       style={{ backgroundColor: "#41B40C" }}
     >
       <a className="navbar-brand" href="#">
-        <Image src="/3Icons.png" alt="3-icons logo" width={200} height={71} />
+        <Image
+          className="img-fluid ms-5"
+          src="/3Icons.png"
+          alt="3-icons logo"
+          width={200}
+          height={71}
+        />
       </a>
       <div className="" role="navigation">
         <ul className="navbar-nav nav-pills d-flex flex-row gap-4 me-5">
