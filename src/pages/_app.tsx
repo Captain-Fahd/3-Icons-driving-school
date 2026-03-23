@@ -10,5 +10,8 @@ export default function App({ Component, pageProps }: AppProps) {
     });
   }, []);
 
-  return <Component {...pageProps} />;
+  return <>
+    <link rel="icon" href="/logo_small.png"/>
+  <Component {...pageProps} />
+  </>
 }
