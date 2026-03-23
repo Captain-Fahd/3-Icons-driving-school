@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 const slides = [
     { src: "https://picsum.photos/seed/slide1/1600/900", alt: "Slide 1" },
     { src: "https://picsum.photos/seed/slide2/1600/900", alt: "Slide 2" },
@@ -18,8 +17,12 @@ const HeroCarousel = () => (
                 ))}
             </div>
         </div>
-        <div className="position-absolute top-50 start-50 translate-middle text-center text-white w-100" style={{ zIndex: 10 }}>
-            <h1 className="fw-bold">Learn to Drive with Confidence</h1>
+        <div id="hero-overlay" className="position-absolute top-50 start-50 translate-middle text-center text-white w-100 justify-content-center">
+            <h1 className="fw-bold ">Driving you to success</h1>
+            <div className="hero-btns">
+                <button className="btn pricing-btn" style={{ color: "lightgray", borderColor: "lightgray", width: "95px"}}>Pricing</button>
+                <button className="btn btn-danger">Book Now</button>
+            </div>
         </div>
     </div>
 );

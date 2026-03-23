@@ -14,3 +14,28 @@
     left: 50%;
 }
 
+#hero-overlay {
+    z-index: 10;
+    height: 55vh;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-btns {
+   padding-top: 10%;
+}
+
+.hero-btns > button {
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.pricing-btn {
+    transition: transform 0.08s ease-in-out;
+}
+
+.pricing-btn:hover{
+    transition: 0.08s ease-in-out;
+    background-color: rgba(87, 87, 86, 0.2);
+}
