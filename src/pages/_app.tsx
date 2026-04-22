@@ -1,17 +1,18 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { useEffect } from "react";
+import { Provider } from "@/components/ui/provider";
+import {createContext, useState} from "react";
+interface PageContextInterface {
+    pageTitle: string,
+    setPageTitle: React.Dispatch<React.SetStateAction<string>>
+}
+const PageContext = createContext<PageContextInterface | null>(null)
 
 export default function App({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    import("bootstrap").then(({ Carousel }) => {
-      document.querySelectorAll('[data-bs-ride="carousel"]').forEach(el => new Carousel(el));
-    });
-  }, []);
+    const [pageTitle, setPageTitle] = useState<string>("");
+  return (
+    <Provider>
 
-  return <>
-    <link rel="icon" href="/logo_small.png"/>
-  <Component {...pageProps} />
-  </>
+      <Component {...pageProps} />
+    </Provider>
+  );
 }
