@@ -12,7 +12,7 @@ const Pages = () => {
   const { pathname } = useRouter();
 
   return (
-    <Flex bg={"#099331/10"}  borderRadius="40px" padding="0.5em" gap="1">
+    <Flex bg={"#099331/10"}  borderRadius="40px" padding="0.5em" gap="4">
       {NAV_LINKS.map(({ label, href }) => {
         const isActive = pathname === href;
         return (
@@ -20,8 +20,8 @@ const Pages = () => {
             key={href}
             backgroundColor={isActive ? "white" : "transparent"}
             borderRadius="40px"
-            paddingX="0.75em"
-            paddingY="0.25em"
+            paddingX="1em"
+            paddingY="0.5em"
           >
             <Link asChild fontWeight="bold" color={isActive ? "#054c19" : "#054c1988"}>
               <NextLink href={href}>{label}</NextLink>
