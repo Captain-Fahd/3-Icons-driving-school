@@ -23,7 +23,7 @@ const Pages = () => {
             paddingX="0.75em"
             paddingY="0.25em"
           >
-            <Link asChild fontWeight={isActive ? "bold" : "normal"} color={"#054c19"}>
+            <Link asChild fontWeight="bold" color={isActive ? "#054c19" : "#054c1988"}>
               <NextLink href={href}>{label}</NextLink>
             </Link>
           </Box>
