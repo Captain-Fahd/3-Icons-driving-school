@@ -1,18 +1,20 @@
 import type { AppProps } from "next/app";
 import { Provider } from "@/components/ui/provider";
-import {createContext, useState} from "react";
-interface PageContextInterface {
-    pageTitle: string,
-    setPageTitle: React.Dispatch<React.SetStateAction<string>>
-}
-const PageContext = createContext<PageContextInterface | null>(null)
+import { Google_Sans } from "next/font/google";
+
+const gSans = Google_Sans({
+    subsets: ["latin"],
+    weight: ["400", "500", "700"],
+})
+export const THEME_COLOR = "#0a9b33";
+export const THEME_HOVER = "#087b28"
 
 export default function App({ Component, pageProps }: AppProps) {
-    const [pageTitle, setPageTitle] = useState<string>("");
   return (
     <Provider>
-
-      <Component {...pageProps} />
+      <div className={gSans.className} style={{ fontFamily: "inherit" }}>
+        <Component {...pageProps} />
+      </div>
     </Provider>
   );
 }

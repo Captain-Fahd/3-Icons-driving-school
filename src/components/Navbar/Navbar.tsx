@@ -1,5 +1,6 @@
 import { Flex, Image, Link} from "@chakra-ui/react"
 import Pages from "@/components/Navbar/Pages";
+import {THEME_COLOR, THEME_HOVER} from "@/pages/_app";
 
 
 
@@ -19,9 +20,19 @@ const Navbar = () => {
     >
         <Image src="/logo_small.png" alt={"3 Icons driving school logo"}/>
         <Pages />
-        <Flex backgroundColor={"#054c19"} borderRadius={"3em"} width={"10rem"} minW={"5vw"} justifyContent={"center"} alignItems={"center"}>
-            <Link href="/book" color={"white"} fontWeight={"bold"}>Book Now</Link>
-        </Flex>
+        <Link href="/book"
+              backgroundColor={THEME_COLOR}
+              borderRadius={"3em"}
+              width={"10rem"}
+              minW={"5vw"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              fontWeight={"bold"}
+              color={"white"}
+              _hover={{backgroundColor: THEME_HOVER}}
+        >
+           Book a lesson
+        </Link>
     </Flex>
     )
 }
