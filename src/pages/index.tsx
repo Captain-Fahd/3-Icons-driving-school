@@ -75,7 +75,7 @@ export default function Home() {
                 <polyline points="6 9 12 15 18 9" />
             </svg>
         </Box>
-        <Flex width="100vw" marginY={"15%"} justifyContent={"space-evenly"}>
+        <Flex width="100vw" marginY={"15%"} justifyContent={"space-evenly"} flexDirection={{ base: "column", lg: "row" }} alignItems={{ base: "center", lg: "flex-start" }} gap={{ base: "2em", lg: "0" }}>
             {PACKAGES.map((lesson) => (
                 <PriceCard key={lesson.title} lessonPackage={lesson} />
             ))}
