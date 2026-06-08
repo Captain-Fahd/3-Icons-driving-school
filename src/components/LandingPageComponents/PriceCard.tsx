@@ -13,7 +13,7 @@ const PriceCard = ({ lessonPackage }: { lessonPackage: LessonPackage }) => {
     const btnHover = isPopular ? "gray.100" : "#222";
 
     return (
-        <Box position="relative" paddingTop={isPopular ? "1.5em" : "0"}>
+        <Box position="relative" paddingTop={isPopular ? "2" : "4em"}>
             {isPopular && (
                 <Flex
                     position="absolute"
