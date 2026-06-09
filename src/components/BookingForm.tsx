@@ -11,8 +11,9 @@ import {
   Flex,
   Button,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { THEME_COLOR, THEME_HOVER } from "@/pages/_app";
+import emailjs from "@emailjs/browser";
 
 const BookingForm = () => {
   const [name, setName] = useState("");
@@ -23,8 +24,7 @@ const BookingForm = () => {
   const [packageType, setPackageType] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.MouseEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     console.log("Form submitted:", {
       name,
       mobileNumber,
@@ -33,7 +33,25 @@ const BookingForm = () => {
       completedHazards,
       packageType,
     });
-
+    try {
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+        {
+          name,
+          mobileNumber,
+          email,
+          licenseStage,
+          completedHazards:
+            licenseStage === "learner" ? completedHazards : "N/A",
+          packageType,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "",
+      );
+      console.log("EmailJS response:", response);
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
     setIsSubmitted(true);
   };
 
@@ -64,136 +82,147 @@ const BookingForm = () => {
         padding="3em"
       >
         <Fieldset.Root width={"100%"} gap="1em">
-          <Flex flexDirection={"column"} gap={"1em"} alignItems={"center"}>
-            <Field.Root
-              required
-              width={"80%"}
-              invalid={isSubmitted && name.length < 2}
-            >
-              <Field.Label>
-                Name <Field.RequiredIndicator />
-              </Field.Label>
-              <Input
-                placeholder={"John Doe"}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <Field.ErrorText>Please enter a valid name</Field.ErrorText>
-            </Field.Root>
-            <Field.Root
-              required
-              width={"80%"}
-              invalid={isSubmitted && mobileNumber.length < 10}
-            >
-              <NumberInput.Root
-                width={"100%"}
-                formatOptions={{
-                  minimumIntegerDigits: 10,
-                  useGrouping: false,
-                }}
-                onValueChange={(details) => setMobileNumber(details.value)}
-                invalid={isSubmitted && mobileNumber.length < 10}
-                inputMode="decimal"
+          <form>
+            <Flex flexDirection={"column"} gap={"1em"} alignItems={"center"}>
+              <Field.Root
                 required
+                width={"80%"}
+                invalid={isSubmitted && name.length < 2}
               >
                 <Field.Label>
-                  Mobile Number <Field.RequiredIndicator />
+                  Name <Field.RequiredIndicator />
                 </Field.Label>
-                <NumberInput.Input placeholder={"0400000000"} />
-                <Field.ErrorText>
-                  Please enter a valid phone number
-                </Field.ErrorText>
-              </NumberInput.Root>
-            </Field.Root>
-            <Field.Root
-              width={"80%"}
-              required
-              margin={"auto"}
-              invalid={
-                isSubmitted &&
-                email.length < 1 &&
-                email.match(/^\S+@\S+$/) === null
-              }
-              _invalid={{
-                borderColor: "red.500",
-                boxShadow: "0 0 0 1px red.500",
-              }}
-              _hover={{
-                borderColor: "red.500",
-                boxShadow: "0 0 0 1px red.500",
-              }}
-            >
-              <Field.Label>
-                Email <Field.RequiredIndicator />
-              </Field.Label>
-              <Input
-                type={"email"}
-                placeholder={"john@example.com"}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Field.Root>
-            <Field.Root required width={"80%"} margin={"auto"}>
-              <Field.Label>License Stage</Field.Label>
-              <NativeSelect.Root>
-                <NativeSelect.Field
-                  defaultValue=""
-                  width={"100%"}
-                  onChange={(e) => setLicenseStage(e.target.value)}
-                >
-                  <option value="" disabled>
-                    Select an option
-                  </option>
-                  <option value="learner">Learners</option>
-                  <option value="probationary">Probationary</option>
-                </NativeSelect.Field>
-                <NativeSelect.Indicator />
-              </NativeSelect.Root>
-            </Field.Root>
-            {licenseStage === "learner" && (
-              <Field.Root width={"80%"} margin={"auto"}>
-                <Checkbox.Root
-                  colorPalette="green"
-                  width={"100%"}
-                  onChange={(e) => setCompletedHazards(!completedHazards)}
-                >
-                  <Checkbox.HiddenInput />
-                  <Checkbox.Control />
-                  <Checkbox.Label>Completed Hazards Test?</Checkbox.Label>
-                </Checkbox.Root>
+                <Input
+                  placeholder={"John Doe"}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <Field.ErrorText>Please enter a valid name</Field.ErrorText>
               </Field.Root>
-            )}
-            <Field.Root width={"80%"} margin={"auto"}>
-              <Field.Label>Package</Field.Label>
-              <NativeSelect.Root>
-                <NativeSelect.Field
-                  defaultValue="basic"
-                  onChange={(e) => setPackageType(e.target.value)}
+              <Field.Root
+                required
+                width={"80%"}
+                invalid={isSubmitted && mobileNumber.length < 10}
+              >
+                <NumberInput.Root
+                  width={"100%"}
+                  formatOptions={{
+                    minimumIntegerDigits: 10,
+                    useGrouping: false,
+                  }}
+                  onValueChange={(details) => setMobileNumber(details.value)}
+                  invalid={isSubmitted && mobileNumber.length < 10}
+                  inputMode="decimal"
+                  required
                 >
-                  <option value="" disabled>
-                    Select package
-                  </option>
-                  <option value="single">Single Lesson $75</option>
-                  <option value="starter">
-                    Starter Package (5 lessons) $250
-                  </option>
-                  <option value="test-ready">
-                    Test-Ready (10 lessons + Test day) $450
-                  </option>
-                  <option value="unsure">Not sure yet</option>
-                </NativeSelect.Field>
-                <NativeSelect.Indicator />
-              </NativeSelect.Root>
-            </Field.Root>
-          </Flex>
+                  <Field.Label>
+                    Mobile Number <Field.RequiredIndicator />
+                  </Field.Label>
+                  <NumberInput.Input placeholder={"0400000000"} />
+                  <Field.ErrorText>
+                    Please enter a valid phone number
+                  </Field.ErrorText>
+                </NumberInput.Root>
+              </Field.Root>
+              <Field.Root
+                width={"80%"}
+                required
+                margin={"auto"}
+                invalid={
+                  isSubmitted &&
+                  email.length < 1 &&
+                  email.match(/^\S+@\S+$/) === null
+                }
+                _invalid={{
+                  borderColor: "red.500",
+                  boxShadow: "0 0 0 1px red.500",
+                }}
+                _hover={{
+                  borderColor: "red.500",
+                  boxShadow: "0 0 0 1px red.500",
+                }}
+              >
+                <Field.Label>
+                  Email <Field.RequiredIndicator />
+                </Field.Label>
+                <Input
+                  type={"email"}
+                  placeholder={"john@example.com"}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Field.Root>
+              <Field.Root required width={"80%"} margin={"auto"}>
+                <Field.Label>License Stage</Field.Label>
+                <NativeSelect.Root>
+                  <NativeSelect.Field
+                    defaultValue=""
+                    width={"100%"}
+                    onChange={(e) => setLicenseStage(e.target.value)}
+                  >
+                    <option value="" disabled>
+                      Select an option
+                    </option>
+                    <option value="learner">Learners</option>
+                    <option value="probationary">Probationary</option>
+                  </NativeSelect.Field>
+                  <NativeSelect.Indicator />
+                </NativeSelect.Root>
+              </Field.Root>
+              {licenseStage === "learner" && (
+                <Field.Root width={"80%"} margin={"auto"}>
+                  <Checkbox.Root
+                    colorPalette="green"
+                    width={"100%"}
+                    onChange={(e) => setCompletedHazards(!completedHazards)}
+                  >
+                    <Checkbox.HiddenInput />
+                    <Checkbox.Control />
+                    <Checkbox.Label>Completed Hazards Test?</Checkbox.Label>
+                  </Checkbox.Root>
+                </Field.Root>
+              )}
+              <Field.Root width={"80%"} margin={"auto"}>
+                <Field.Label>Package</Field.Label>
+                <NativeSelect.Root>
+                  <NativeSelect.Field
+                    defaultValue="basic"
+                    onChange={(e) => setPackageType(e.target.value)}
+                  >
+                    <option value="" disabled>
+                      Select package
+                    </option>
+                    <option value="single">Single Lesson $75</option>
+                    <option value="starter">
+                      Starter Package (5 lessons) $250
+                    </option>
+                    <option value="test-ready">
+                      Test-Ready (10 lessons + Test day) $450
+                    </option>
+                    <option value="unsure">Not sure yet</option>
+                  </NativeSelect.Field>
+                  <NativeSelect.Indicator />
+                </NativeSelect.Root>
+              </Field.Root>
+              <Button
+                marginTop={"2em"}
+                type="submit"
+                width={"30%"}
+                minWidth={"150px"}
+                backgroundColor={THEME_COLOR}
+                _hover={{
+                  bg: THEME_HOVER,
+                  scale: 1.02,
+                  transition: "all 0.2s",
+                }}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSubmit();
+                }}
+              >
+                Request booking
+              </Button>
+            </Flex>
+          </form>
         </Fieldset.Root>
-        <Button
-          width={"30%"}
-          minWidth={"150px"}
-          backgroundColor={THEME_COLOR}
-          _hover={{ bg: THEME_HOVER, scale: 1.02, transition: "all 0.2s" }}
-          onClick={(e) => handleSubmit(e)}
-        >
-          Request booking
-        </Button>
       </Flex>
     </Box>
   );
