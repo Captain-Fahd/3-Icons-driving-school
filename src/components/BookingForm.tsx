@@ -172,7 +172,7 @@ const BookingForm = () => {
                   <Checkbox.Root
                     colorPalette="green"
                     width={"100%"}
-                    onChange={(e) => setCompletedHazards(!completedHazards)}
+                    onChange={() => setCompletedHazards(!completedHazards)}
                   >
                     <Checkbox.HiddenInput />
                     <Checkbox.Control />
