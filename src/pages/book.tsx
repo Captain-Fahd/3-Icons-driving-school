@@ -1,6 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import Navbar from "@/components/Navbar/Navbar";
 import BookingForm from "@/components/BookingForm";
+import Footer from "@/components/Navbar/Footer";
 
 export default function Book() {
   return (
@@ -9,6 +10,7 @@ export default function Book() {
       <Box>
         <BookingForm />
       </Box>
+      <Footer />
     </Box>
   );
 }

@@ -1,11 +1,12 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/components/LandingPageComponents/Hero";
 import { Flex } from "@chakra-ui/react";
-import { LessonPackage } from "@/components/packages/LessonPackage";
 import PriceCard from "@/components/LandingPageComponents/PriceCard";
 import { Box } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import ServiceArea from "@/components/LandingPageComponents/ServiceArea";
+import Footer from "@/components/Navbar/Footer";
+import { PACKAGES } from "@/components/packages/Packages";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -15,56 +16,6 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const PACKAGES: LessonPackage[] = [
-    {
-      title: "Single Lesson",
-      subtitle: "Perfect for a top-up or a refresher",
-      price: 60,
-      priceLabel: "/hour",
-      lessonLength: 60,
-      numLessons: 1,
-      benefits: [
-        "60-minute lessons",
-        "Expert Instruction",
-        "Automatic Transmission",
-        "Male and Female Intructors",
-      ],
-      isPopular: false,
-      ctaLabel: "Choose Single",
-    },
-    {
-      title: "Starter Package",
-      subtitle: "Crafted for first-timers and new learners",
-      price: 250,
-      priceLabel: "/5 hours",
-      lessonLength: 60,
-      numLessons: 5,
-      benefits: [
-        "Save $50",
-        "60-minute lessons",
-        "Lesson Plan",
-        "VicRoads Test Guide",
-      ],
-      isPopular: true,
-      ctaLabel: "Choose Starter",
-    },
-    {
-      title: "Test-Ready",
-      subtitle: "From Zero to Exam-Ready",
-      price: 450,
-      priceLabel: "/10 hours",
-      lessonLength: 60,
-      numLessons: 10,
-      benefits: [
-        "Save $150",
-        "Become Test Ready",
-        "VicRoads test routes",
-        "Automatic Transmission",
-      ],
-      isPopular: false,
-      ctaLabel: "Choose Test-Ready",
-    },
-  ];
 
   return (
     <Box width="100vw">
@@ -114,6 +65,7 @@ export default function Home() {
         ))}
       </Flex>
       <ServiceArea />
+      <Footer />
     </Box>
   );
 }
