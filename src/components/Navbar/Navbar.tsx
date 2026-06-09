@@ -33,7 +33,10 @@ const Navbar = () => {
         alignItems={"center"}
         fontWeight={"bold"}
         color={"white"}
-        _hover={{ backgroundColor: THEME_HOVER }}
+        _hover={{
+          backgroundColor: THEME_HOVER,
+          transition: "all 0.2s",
+        }}
       >
         Book a lesson
       </Link>

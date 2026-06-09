@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/components/LandingPageComponents/Hero";
 import { Flex } from "@chakra-ui/react";
-import { LessonPackage } from "@/components/LandingPageComponents/LessonPackage";
+import { LessonPackage } from "@/components/packages/LessonPackage";
 import PriceCard from "@/components/LandingPageComponents/PriceCard";
 import { Box } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
