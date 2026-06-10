@@ -12,19 +12,7 @@ import { FaArrowRight } from "react-icons/fa";
 import Router from "next/router";
 import { THEME_COLOR, THEME_HOVER } from "@/pages/_app";
 import { useEffect, useState } from "react";
-
-function useWindowSize() {
-  const [width, setWidth] = useState<number | null>(null);
-
-  useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  return { width };
-}
+import { useWindowSize } from "@/components/WindowSize";
 
 const Hero = () => {
   const { width } = useWindowSize();
@@ -70,14 +58,18 @@ const Hero = () => {
             background: "linear-gradient(to bottom, transparent, white)",
           }}
           zIndex={1}
+          justifyContent={"center"}
+          alignItems={"center"}
         />
         <Flex
           position="relative"
           zIndex={2}
           height={"100%"}
           alignItems={"center"}
+          justifyContent={"center"}
+          width={"100%"}
         >
-          <Box>
+          <Box width={"90%"} alignItems={"center"}>
             <Text
               fontSize={"xl"}
               fontWeight={"semibold"}

@@ -10,6 +10,7 @@ import {
 import { FiMapPin } from "react-icons/fi";
 import ServiceAreaMaps from "@/components/LandingPageComponents/ServiceAreaMaps";
 import { useEffect, useState } from "react";
+import { useWindowSize } from "@/components/WindowSize";
 
 export const suburbs = [
   "Preston",
@@ -23,19 +24,6 @@ export const suburbs = [
   "South Morang",
   "Roxburgh Park",
 ];
-
-function useWindowSize() {
-  const [width, setWidth] = useState<number | null>(null);
-
-  useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  return { width };
-}
 
 const ServiceArea = () => {
   const { width } = useWindowSize();
