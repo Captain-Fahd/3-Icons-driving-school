@@ -44,7 +44,7 @@ const PriceCard = ({ lessonPackage }: { lessonPackage: LessonPackage }) => {
         backgroundColor={bg}
         borderRadius="2xl"
         padding="3em"
-        width={{ base: "90vw", lg: "15vw" }}
+        width={{ base: "90%", lg: "15%" }}
         minWidth={{ base: "unset", lg: "300px" }}
         boxShadow="md"
         display="flex"

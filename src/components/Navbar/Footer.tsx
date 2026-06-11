@@ -1,6 +1,5 @@
-import { Box, Heading, HStack, Link } from "@chakra-ui/react";
+import { Box, Heading, HStack, Link, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { useEffect, useState } from "react";
 import { useWindowSize } from "@/components/WindowSize";
 
 const Footer = () => {
@@ -15,11 +14,15 @@ const Footer = () => {
         padding={"1em"}
         backgroundColor={"green.600"}
         marginTop={"3em"}
+        opacity={"0.6"}
       >
         <HStack justifyContent={"space-between"} alignItems={"center"}>
           <Heading color={"white"} textStyle={"xl"}>
             3-Icons Driving School
           </Heading>
+          <Text color={"white"} textStyle={"sm"}>
+            Copyright 3-Icons driving school 2026, all rights reserved©
+          </Text>
           <HStack>
             <Link asChild color={"white"}>
               <NextLink href={"/"}>Home</NextLink>
@@ -42,13 +45,18 @@ const Footer = () => {
       <Box
         width={"100%"}
         height={"20%"}
-        padding={"2.5em"}
+        padding={"1.3em"}
         backgroundColor={"green.600"}
+        marginTop={"3em"}
       >
         <HStack justifyContent={"space-between"} alignItems={"center"}>
           <Heading color={"white"} textStyle={"3xl"}>
             3-Icons Driving School
           </Heading>
+          <Text color={"white"} textStyle={"2xs"} backgroundColor={"green.600"}>
+            © 2026 3-Icons Driving School. All rights reserved. Made in
+            Melbourne
+          </Text>
           <HStack>
             <Link asChild color={"white"}>
               <NextLink href={"/"}>Home</NextLink>

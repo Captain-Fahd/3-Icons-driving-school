@@ -17,7 +17,7 @@ const Navbar = () => {
       <Flex // Chakra Element
         flexDirection="horizontal"
         padding={"1.5em 1em 1.5em 1em"}
-        width={"100%"}
+        width={"100vw"}
         justifyContent={"space-between"}
         borderBottom={"0.1px solid lightgrey"}
         bg={"rgba(255,255,255,0.6)"}
