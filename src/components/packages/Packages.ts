@@ -1,10 +1,10 @@
 import { LessonPackage } from "@/components/packages/LessonPackage";
 
-export const PACKAGES: LessonPackage[] = [
+export const HOUR_PACKAGES: LessonPackage[] = [
   {
     title: "Single Lesson",
-    subtitle: "Perfect for a top-up or a refresher",
-    price: 60,
+    subtitle: "Perfect for a starter or top-up",
+    price: 65,
     priceLabel: "/hour",
     lessonLength: 60,
     numLessons: 1,
@@ -20,7 +20,7 @@ export const PACKAGES: LessonPackage[] = [
   {
     title: "Starter Package",
     subtitle: "Crafted for first-timers and new learners",
-    price: 250,
+    price: 90,
     priceLabel: "/5 hours",
     lessonLength: 60,
     numLessons: 5,
@@ -48,5 +48,23 @@ export const PACKAGES: LessonPackage[] = [
     ],
     isPopular: false,
     ctaLabel: "Choose Test-Ready",
+  },
+];
+
+export const BUNDLES: LessonPackage[] = [
+  {
+    title: "Test Day",
+    subtitle: "To get you ready for your exam",
+    price: 250,
+    priceLabel: "/1hr + test day",
+    lessonLength: 60,
+    numLessons: 1,
+    benefits: [
+      "Final test preparation",
+      "Expert Guidance",
+      "VicRoads test routes",
+    ],
+    isPopular: false,
+    ctaLabel: "Choose Test Day",
   },
 ];
