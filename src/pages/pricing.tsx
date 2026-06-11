@@ -16,7 +16,7 @@ export default function Pricing() {
           fontWeight={"bold"}
           textAlign={"center"}
         >
-          Simple <Span color={"green.600"}>Prices</Span>
+          Simple, Clear <Span color={"green.600"}>Pricing</Span>
         </Heading>
         <HStack justifyContent={"space-evenly"} width={"100%"}>
           {PACKAGES.map((lesson) => (

@@ -82,7 +82,12 @@ const BookingForm = () => {
         padding="3em"
       >
         <Fieldset.Root width={"100%"} gap="1em">
-          <form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit();
+            }}
+          >
             <Flex flexDirection={"column"} gap={"1em"} alignItems={"center"}>
               <Field.Root
                 required
@@ -212,10 +217,6 @@ const BookingForm = () => {
                   bg: THEME_HOVER,
                   scale: 1.02,
                   transition: "all 0.2s",
-                }}
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleSubmit();
                 }}
               >
                 Request booking

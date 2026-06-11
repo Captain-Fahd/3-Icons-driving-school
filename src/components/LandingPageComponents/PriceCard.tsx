@@ -20,13 +20,13 @@ const PriceCard = ({ lessonPackage }: { lessonPackage: LessonPackage }) => {
           position="absolute"
           top={0}
           left="50%"
-          transform="translateX(-50%)"
+          transform="translateX(-60%)"
           backgroundColor={"white"}
           color={THEME_COLOR}
           border={THEME_COLOR}
           borderWidth={"2px"}
           borderRadius="full"
-          paddingX="1.2em"
+          paddingX="1.5em"
           paddingY="0.3em"
           zIndex={1}
         >
