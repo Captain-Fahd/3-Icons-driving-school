@@ -6,7 +6,7 @@ import { Box } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import ServiceArea from "@/components/LandingPageComponents/ServiceArea";
 import Footer from "@/components/Navbar/Footer";
-import { PACKAGES } from "@/components/packages/Packages";
+import { HOUR_PACKAGES } from "@/components/packages/Packages";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -60,7 +60,7 @@ export default function Home() {
         alignItems={{ base: "center", lg: "flex-start" }}
         gap={{ base: "2em", lg: "0" }}
       >
-        {PACKAGES.map((lesson) => (
+        {HOUR_PACKAGES.map((lesson) => (
           <PriceCard key={lesson.title} lessonPackage={lesson} />
         ))}
       </Flex>

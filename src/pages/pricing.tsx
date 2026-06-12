@@ -1,7 +1,7 @@
 import { Box, Heading, HStack, Span, Text, VStack } from "@chakra-ui/react";
 import Navbar from "@/components/Navbar/Navbar";
 import PriceCard from "@/components/LandingPageComponents/PriceCard";
-import { HOUR_PACKAGES } from "@/components/packages/Packages";
+import { BUNDLES, HOUR_PACKAGES } from "@/components/packages/Packages";
 import Footer from "@/components/Navbar/Footer";
 
 export default function Pricing() {
@@ -24,10 +24,11 @@ export default function Pricing() {
           textAlign={"left"}
           width={"19%"}
           marginBottom={"1em"}
+          minWidth={"300px"}
         >
           Our Lesson <Span color={"green.600"}>Packages</Span>
         </Heading>
-        <HStack justifyContent={"space-evenly"} width={"100%"}>
+        <HStack justifyContent={"space-evenly"} width={"100%"} wrap={"wrap"}>
           {HOUR_PACKAGES.map((lesson) => (
             <PriceCard key={lesson.title} lessonPackage={lesson} />
           ))}
@@ -36,12 +37,22 @@ export default function Pricing() {
           textStyle={"4xl"}
           fontWeight={"bold"}
           width={"19%"}
-          marginBottom={"1em"}
+          marginTop={"1em"}
           textAlign={"center"}
+          minWidth={"300px"}
         >
           Our <Span color={"green.600"}>Bundles</Span>
         </Heading>
-        //TODO: Add bundles
+        <HStack
+          width={"50%"}
+          justifyContent={"space-evenly"}
+          minWidth={"300px"}
+          wrap={"wrap"}
+        >
+          {BUNDLES.map((bundle) => (
+            <PriceCard key={bundle.title} lessonPackage={bundle} />
+          ))}
+        </HStack>
         <Text textAlign={"center"} marginTop={"2em"} textStyle={"sm"}>
           Simple, clear pricing. No hidden fees or charges.
         </Text>
