@@ -14,27 +14,48 @@ const Footer = () => {
         padding={"1em"}
         backgroundColor={"green.600"}
         marginTop={"3em"}
-        opacity={"0.6"}
+        opacity={"0.8"}
       >
-        <HStack justifyContent={"space-between"} alignItems={"center"}>
-          <Heading color={"white"} textStyle={"xl"}>
+        <HStack
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          gap={"0.5em"}
+        >
+          <Heading color={"white"} textStyle={"md"}>
             3-Icons Driving School
           </Heading>
-          <Text color={"white"} textStyle={"sm"}>
+          <Text color={"white"} textStyle={"2xs"}>
             Copyright 3-Icons driving school 2026, all rights reserved©
           </Text>
-          <HStack>
-            <Link asChild color={"white"}>
-              <NextLink href={"/"}>Home</NextLink>
+          <HStack wrap={"wrap"} gap={"0.5em"}>
+            <Link asChild color={"white"} fontSize={"xs"}>
+              <NextLink href={"/"} style={{ color: "white", fontSize: "12px" }}>
+                Home
+              </NextLink>
             </Link>
-            <Link asChild color={"white"}>
-              <NextLink href={"/about"}>About</NextLink>
+            <Link fontSize={"xs"} asChild color={"white"}>
+              <NextLink
+                href={"/about"}
+                style={{ color: "white", fontSize: "12px" }}
+              >
+                About
+              </NextLink>
             </Link>
-            <Link asChild color={"white"}>
-              <NextLink href={"/pricing"}>Pricing</NextLink>
+            <Link asChild fontSize={"xs"} color={"white"}>
+              <NextLink
+                href={"/pricing"}
+                style={{ color: "white", fontSize: "12px" }}
+              >
+                Pricing
+              </NextLink>
             </Link>
-            <Link asChild color={"white"}>
-              <NextLink href={"/book"}>Book</NextLink>
+            <Link asChild fontSize={"xs"} color={"white"}>
+              <NextLink
+                href={"/book"}
+                style={{ color: "white", fontSize: "12px" }}
+              >
+                Book
+              </NextLink>
             </Link>
           </HStack>
         </HStack>
@@ -48,6 +69,7 @@ const Footer = () => {
         padding={"1.3em"}
         backgroundColor={"green.600"}
         marginTop={"3em"}
+        opacity={"0.8"}
       >
         <HStack justifyContent={"space-between"} alignItems={"center"}>
           <Heading color={"white"} textStyle={"3xl"}>
@@ -57,7 +79,7 @@ const Footer = () => {
             © 2026 3-Icons Driving School. All rights reserved. Made in
             Melbourne
           </Text>
-          <HStack>
+          <HStack fontSize={"xs"}>
             <Link asChild color={"white"}>
               <NextLink href={"/"}>Home</NextLink>
             </Link>
