@@ -1,4 +1,5 @@
 export interface LessonPackage {
+  id: string;
   title: string;
   subtitle: string;
   price: number;

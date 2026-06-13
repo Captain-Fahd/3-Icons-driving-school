@@ -2,10 +2,20 @@ import { LessonPackage } from "@/components/packages/LessonPackage";
 import { Box, Flex, Text, Heading } from "@chakra-ui/react";
 import { FaCheck } from "react-icons/fa";
 import { THEME_COLOR } from "@/pages/_app";
+import { useRouter } from "next/router";
 
 const PriceCard = ({ lessonPackage }: { lessonPackage: LessonPackage }) => {
-  const { title, subtitle, price, priceLabel, benefits, isPopular, ctaLabel } =
-    lessonPackage;
+  const router = useRouter();
+  const {
+    id,
+    title,
+    subtitle,
+    price,
+    priceLabel,
+    benefits,
+    isPopular,
+    ctaLabel,
+  } = lessonPackage;
   const bg = isPopular ? THEME_COLOR : "white";
   const textColor = isPopular ? "white" : "black";
   const subtitleColor = isPopular ? "whiteAlpha.800" : "gray.500";
@@ -104,6 +114,7 @@ const PriceCard = ({ lessonPackage }: { lessonPackage: LessonPackage }) => {
           cursor="pointer"
           transition="background 0.2s"
           _hover={{ backgroundColor: btnHover }}
+          onClick={() => router.push(`/book?package=${id}`)}
         >
           {ctaLabel}
         </Box>

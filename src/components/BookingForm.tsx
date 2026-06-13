@@ -12,9 +12,11 @@ import {
   Button,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import { THEME_COLOR, THEME_HOVER } from "@/pages/_app";
 import emailjs from "@emailjs/browser";
 import { useWindowSize } from "@/components/WindowSize";
+import { HOUR_PACKAGES, BUNDLES } from "@/components/packages/Packages";
 
 const BookingForm = () => {
   const [name, setName] = useState("");
@@ -26,6 +28,34 @@ const BookingForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const windowSize = useWindowSize();
   const BREAKPOINT = 768;
+  const router = useRouter();
+
+  // Preselect from query param (e.g. /book?package=single-lesson) until user picks
+  const queryPackage =
+    typeof router.query.package === "string" ? router.query.package : "";
+  const selectedPackage = packageType || queryPackage;
+
+  // Disabled section headers, then packages and bundles listed accordingly
+  const packageOptions = (
+    <>
+      <option value="" disabled>
+        Select package
+      </option>
+      <option disabled>── Packages ──</option>
+      {HOUR_PACKAGES.map((pkg) => (
+        <option key={pkg.id} value={pkg.id}>
+          {pkg.title} — ${pkg.price}
+        </option>
+      ))}
+      <option disabled>── Bundles ──</option>
+      {BUNDLES.map((bundle) => (
+        <option key={bundle.id} value={bundle.id}>
+          {bundle.title} — ${bundle.price}
+        </option>
+      ))}
+      <option value="unsure">Not sure yet</option>
+    </>
+  );
 
   const handleSubmit = async () => {
     console.log("Form submitted:", {
@@ -47,7 +77,7 @@ const BookingForm = () => {
           licenseStage,
           completedHazards:
             licenseStage === "learner" ? completedHazards : "N/A",
-          packageType,
+          packageType: selectedPackage,
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "",
       );
@@ -194,20 +224,10 @@ const BookingForm = () => {
                   <Field.Label>Package</Field.Label>
                   <NativeSelect.Root>
                     <NativeSelect.Field
-                      defaultValue="basic"
+                      value={selectedPackage}
                       onChange={(e) => setPackageType(e.target.value)}
                     >
-                      <option value="" disabled>
-                        Select package
-                      </option>
-                      <option value="single">Single Lesson $75</option>
-                      <option value="starter">
-                        Starter Package (5 lessons) $250
-                      </option>
-                      <option value="test-ready">
-                        Test-Ready (10 lessons + Test day) $450
-                      </option>
-                      <option value="unsure">Not sure yet</option>
+                      {packageOptions}
                     </NativeSelect.Field>
                     <NativeSelect.Indicator />
                   </NativeSelect.Root>
@@ -234,7 +254,13 @@ const BookingForm = () => {
     );
   }
   return (
-    <Box paddingY={"10em"} padding={"10em"} width={"100%"}>
+    <Flex
+      flexDirection={"column"}
+      padding={"10em"}
+      width={"100%"}
+      alignItems={"center"}
+      justifyContent={"center"}
+    >
       <Heading
         fontSize={"6xl"}
         fontWeight={"bold"}
@@ -368,20 +394,10 @@ const BookingForm = () => {
                 <Field.Label>Package</Field.Label>
                 <NativeSelect.Root>
                   <NativeSelect.Field
-                    defaultValue="basic"
+                    value={selectedPackage}
                     onChange={(e) => setPackageType(e.target.value)}
                   >
-                    <option value="" disabled>
-                      Select package
-                    </option>
-                    <option value="single">Single Lesson $75</option>
-                    <option value="starter">
-                      Starter Package (5 lessons) $250
-                    </option>
-                    <option value="test-ready">
-                      Test-Ready (10 lessons + Test day) $450
-                    </option>
-                    <option value="unsure">Not sure yet</option>
+                    {packageOptions}
                   </NativeSelect.Field>
                   <NativeSelect.Indicator />
                 </NativeSelect.Root>
@@ -404,7 +420,7 @@ const BookingForm = () => {
           </form>
         </Fieldset.Root>
       </Flex>
-    </Box>
+    </Flex>
   );
 };
 export default BookingForm;

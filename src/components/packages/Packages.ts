@@ -2,6 +2,7 @@ import { LessonPackage } from "@/components/packages/LessonPackage";
 
 export const HOUR_PACKAGES: LessonPackage[] = [
   {
+    id: "single-lesson",
     title: "Single Lesson",
     subtitle: "Perfect for a starter or top-up",
     price: 65,
@@ -18,6 +19,7 @@ export const HOUR_PACKAGES: LessonPackage[] = [
     ctaLabel: "Choose Single",
   },
   {
+    id: "extended-session",
     title: "Extended Session",
     subtitle: "Crafted for first-timers and new learners",
     price: 90,
@@ -34,6 +36,7 @@ export const HOUR_PACKAGES: LessonPackage[] = [
     ctaLabel: "Choose Starter",
   },
   {
+    id: "double-time",
     title: "Double Time",
     subtitle: "Start off with 2x 1-hour lessons",
     price: 115,
@@ -53,6 +56,7 @@ export const HOUR_PACKAGES: LessonPackage[] = [
 
 export const BUNDLES: LessonPackage[] = [
   {
+    id: "test-day",
     title: "Test Day",
     subtitle: "To get you ready for your exam",
     price: 250,
@@ -69,6 +73,7 @@ export const BUNDLES: LessonPackage[] = [
     ctaLabel: "Choose Test Day",
   },
   {
+    id: "ten-hour-bundle",
     title: "10-hour Bundle",
     subtitle: "The Ultimate Bundle",
     price: 600,

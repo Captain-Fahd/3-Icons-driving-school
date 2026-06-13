@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import ServiceArea from "@/components/LandingPageComponents/ServiceArea";
 import Footer from "@/components/Navbar/Footer";
 import { HOUR_PACKAGES } from "@/components/packages/Packages";
-import { useWindowSize } from "@/components/WindowSize";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,6 +22,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Box
+        marginBottom={"1em"}
         position="fixed"
         bottom="2rem"
         left="50%"
@@ -54,6 +54,7 @@ export default function Home() {
         </svg>
       </Box>
       <Flex
+        paddingTop={"15%"}
         width="100vw"
         marginY={"15%"}
         justifyContent={"space-evenly"}
