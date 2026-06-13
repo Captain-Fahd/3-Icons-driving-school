@@ -40,7 +40,7 @@ const Hero = () => {
             `}</style>
         <Box position="absolute" inset={0} width={"100%"}>
           <Image
-            src="/hero.png"
+            src="/hero.jpg"
             alt={"hero image"}
             opacity={"10%"}
             width={"100%"}
