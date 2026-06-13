@@ -30,7 +30,7 @@ const BookingForm = () => {
   const BREAKPOINT = 768;
   const router = useRouter();
 
-  // Preselect from query param (e.g. /book?package=single-lesson) until user picks
+  // Preselect from the query param (e.g. /book?package=single-lesson) until the user picks
   const queryPackage =
     typeof router.query.package === "string" ? router.query.package : "";
   const selectedPackage = packageType || queryPackage;
