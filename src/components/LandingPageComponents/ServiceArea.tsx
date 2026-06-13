@@ -36,7 +36,8 @@ const ServiceArea = () => {
         minWidth={"200px"}
         height={"120vh"}
         wrap={"wrap"}
-        paddingX={"4vw"}
+        paddingX={"2vw"}
+        gap={"10vw"}
       >
         <Box
           width={"100%"}
@@ -50,14 +51,13 @@ const ServiceArea = () => {
           <ServiceAreaMaps />
         </Box>
         <VStack
-          width={"50%"}
-          minWidth={"400px"}
+          minWidth={"350px"}
           height={"60%"}
           backgroundColor={"green.600"}
           borderRadius={"20px"}
           flex={"2 1 0px"}
           paddingY={"3em"}
-          paddingX={"2em"}
+          paddingLeft={"2em"}
           color={"white"}
           textAlign={"left"}
           alignItems={"flex-start"}
@@ -73,6 +73,8 @@ const ServiceArea = () => {
             gap={"1.25em 4em"}
             textStyle={"lg"}
             fontWeight={"medium"}
+            minWidth={"200px"}
+            width={"60%"}
           >
             {suburbs.map((suburb) => (
               <List.Item key={suburb}>{suburb}</List.Item>

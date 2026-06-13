@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import ServiceArea from "@/components/LandingPageComponents/ServiceArea";
 import Footer from "@/components/Navbar/Footer";
 import { HOUR_PACKAGES } from "@/components/packages/Packages";
+import { useWindowSize } from "@/components/WindowSize";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
