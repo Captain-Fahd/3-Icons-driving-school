@@ -7,6 +7,7 @@ import {
   Carousel,
   IconButton,
   Image,
+  Flex,
 } from "@chakra-ui/react";
 import { Span } from "@chakra-ui/react";
 import { useWindowSize } from "@/components/WindowSize";
@@ -32,6 +33,7 @@ const ActionButton = forwardRef<HTMLButtonElement, IconButtonProps>(
 
 const About = () => {
   const windowWidth = useWindowSize();
+  console.log(windowWidth.width);
   const BREAKPOINT = 768;
   return (
     <Box height={"100%"} width={"100%"} paddingY={"7em"}>
@@ -73,55 +75,99 @@ const About = () => {
           it&#39;s about gaining skills for life.
         </Text>
       </Box>
-      <Carousel.Root
-        slideCount={13}
-        maxW={"xl"}
-        mx={"auto"}
-        gap={"4"}
-        position={"relative"}
-        colorPalette={"green"}
-        marginY={"5em"}
-        autoplay={{ delay: 2000 }}
-      >
-        <Carousel.Control gap={"4"} width={"full"} position={"relative"}>
-          <Carousel.PrevTrigger asChild>
-            <ActionButton insetStart={"4"}>
-              <LuArrowLeft />
-            </ActionButton>
-          </Carousel.PrevTrigger>
+      <Flex flexDirection={"column"} alignItems={"center"} width={"100%"}>
+        <Text
+          textStyle={"4xl"}
+          fontWeight={"bold"}
+          marginTop={"1em"}
+          width={"100vw"}
+          textAlign={"center"}
+          minWidth={"200px"}
+        >
+          Some of our <Span color={"green.600"}>Students</Span>...
+        </Text>
+        <Carousel.Root
+          alignSelf={"center"}
+          slideCount={13}
+          width={
+            windowWidth.width !== null && windowWidth.width <= BREAKPOINT
+              ? "300px"
+              : "full"
+          }
+          maxW={
+            windowWidth.width !== null && windowWidth.width <= BREAKPOINT
+              ? "300px"
+              : "xl"
+          }
+          minW={"300px"}
+          mx={"auto"}
+          gap={"4"}
+          position={"relative"}
+          colorPalette={"green"}
+          marginY={"5em"}
+          autoplay={{ delay: 2000 }}
+        >
+          <Carousel.Control
+            gap={"4"}
+            width={
+              windowWidth.width !== null && windowWidth.width <= BREAKPOINT
+                ? "300px"
+                : "full"
+            }
+            position={"relative"}
+          >
+            <Carousel.PrevTrigger asChild>
+              <ActionButton insetStart={"4"}>
+                <LuArrowLeft />
+              </ActionButton>
+            </Carousel.PrevTrigger>
 
-          <Carousel.ItemGroup width={"full"}>
-            {Array.from({ length: 13 }, (_, index) => (
-              <Carousel.Item key={index} index={index}>
-                <AspectRatio ratio={16 / 9} maxH={"72vh"} w={"full"}>
-                  <Image
-                    src={`/carouselImages/image_${index + 1}.jpg`}
-                    alt={"image of student with license"}
-                    objectFit="contain"
-                    borderRadius={"20px"}
-                  />
-                </AspectRatio>
-              </Carousel.Item>
-            ))}
-          </Carousel.ItemGroup>
+            <Carousel.ItemGroup width={"full"}>
+              {Array.from({ length: 13 }, (_, index) => (
+                <Carousel.Item key={index} index={index}>
+                  <AspectRatio
+                    ratio={16 / 9}
+                    maxH={"72vh"}
+                    w={
+                      windowWidth.width !== null &&
+                      windowWidth.width <= BREAKPOINT
+                        ? "300px"
+                        : "full"
+                    }
+                  >
+                    <Image
+                      src={`/carouselImages/image_${index + 1}.jpg`}
+                      alt={"image of student with license"}
+                      objectFit="contain"
+                      borderRadius={"20px"}
+                    />
+                  </AspectRatio>
+                </Carousel.Item>
+              ))}
+            </Carousel.ItemGroup>
 
-          <Carousel.NextTrigger asChild>
-            <ActionButton insetEnd={"4"}>
-              <LuArrowRight />
-            </ActionButton>
-          </Carousel.NextTrigger>
+            <Carousel.NextTrigger asChild>
+              <ActionButton insetEnd={"4"}>
+                <LuArrowRight />
+              </ActionButton>
+            </Carousel.NextTrigger>
 
-          <Box position={"absolute"} bottom={"6"} width={"full"}>
-            <Carousel.Indicators
-              transition={"width 0.2s ease-in-out"}
-              transformOrigin={"center"}
-              opacity={"0.5"}
-              boxSize={"2"}
-              _current={{ width: "10", bg: "colorPalette.subtle", opacity: 1 }}
-            />
-          </Box>
-        </Carousel.Control>
-      </Carousel.Root>
+            <Box position={"absolute"} bottom={"6"} width={"full"}>
+              <Carousel.Indicators
+                transition={"width 0.2s ease-in-out"}
+                transformOrigin={"center"}
+                opacity={"0.5"}
+                boxSize={"2"}
+                _current={{
+                  width: "10",
+                  bg: "colorPalette.subtle",
+                  opacity: 1,
+                }}
+              />
+            </Box>
+          </Carousel.Control>
+        </Carousel.Root>
+      </Flex>
     </Box>
   );
 };
