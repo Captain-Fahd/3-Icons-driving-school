@@ -123,7 +123,7 @@ const About = () => {
             </Carousel.PrevTrigger>
 
             <Carousel.ItemGroup width={"full"}>
-              {Array.from({ length: 13 }, (_, index) => (
+              {Array.from({ length: 8 }, (_, index) => (
                 <Carousel.Item key={index} index={index}>
                   <AspectRatio
                     ratio={16 / 9}
