@@ -10,6 +10,7 @@ import {
   Span,
   Flex,
   Button,
+  Link,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
@@ -386,7 +387,15 @@ const BookingForm = () => {
                   >
                     <Checkbox.HiddenInput />
                     <Checkbox.Control />
-                    <Checkbox.Label>Completed Hazards Test?</Checkbox.Label>
+                    <Checkbox.Label>
+                      <Link
+                        href={
+                          "https://www.vicroads.vic.gov.au/ls-and-ps/getting-your-ps/hazard-perception-test"
+                        }
+                      >
+                        Completed Hazards Test?
+                      </Link>
+                    </Checkbox.Label>
                   </Checkbox.Root>
                 </Field.Root>
               )}
