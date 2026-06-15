@@ -63,7 +63,7 @@ const PriceCard = ({ lessonPackage }: { lessonPackage: LessonPackage }) => {
       >
         <Box>
           <Heading
-            fontSize="3xl"
+            fontSize="2xl"
             fontWeight="bold"
             color={textColor}
             marginBottom="0.3em"

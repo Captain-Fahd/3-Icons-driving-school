@@ -28,7 +28,13 @@ export default function Pricing() {
         >
           Our Lesson <Span color={"green.600"}>Packages</Span>
         </Heading>
-        <HStack justifyContent={"space-evenly"} width={"100%"} wrap={"wrap"}>
+        <HStack
+          justifyContent={"space-evenly"}
+          width={"100%"}
+          overflowX={"scroll"}
+          gap={"2em"}
+          paddingX={{ base: "10%", lg: "none" }}
+        >
           {HOUR_PACKAGES.map((lesson) => (
             <PriceCard key={lesson.title} lessonPackage={lesson} />
           ))}
@@ -47,7 +53,8 @@ export default function Pricing() {
           width={"50%"}
           justifyContent={"space-evenly"}
           minWidth={"300px"}
-          wrap={"wrap"}
+          overflowX={"scroll"}
+          gap={"2em"}
         >
           {BUNDLES.map((bundle) => (
             <PriceCard key={bundle.title} lessonPackage={bundle} />
