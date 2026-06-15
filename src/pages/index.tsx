@@ -58,7 +58,9 @@ export default function Home() {
         width="100vw"
         marginY={"15%"}
         justifyContent={"space-evenly"}
-        flexDirection={{ base: "column", lg: "row" }}
+        paddingX={{ base: "10%", lg: "none" }}
+        flexDirection={"row"}
+        overflowX={"scroll"}
         alignItems={{ base: "center", lg: "flex-start" }}
         gap={{ base: "2em", lg: "0" }}
       >
