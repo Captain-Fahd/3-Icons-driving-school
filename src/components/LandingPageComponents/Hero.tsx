@@ -42,7 +42,7 @@ const Hero = () => {
           <Image
             src="/hero.jpg"
             alt={"hero image"}
-            opacity={"10%"}
+            opacity={"17%"}
             width={"100%"}
             height={"100%"}
             objectFit="cover"
@@ -133,7 +133,7 @@ const Hero = () => {
           <Image
             src="/hero.jpg"
             alt={"hero image"}
-            opacity={"10%"}
+            opacity={"17%"}
             width={"100%"}
             height={"100%"}
             objectFit="cover"

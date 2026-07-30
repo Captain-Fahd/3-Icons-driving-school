@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/components/LandingPageComponents/Hero";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Heading, Text } from "@chakra-ui/react";
 import PriceCard from "@/components/LandingPageComponents/PriceCard";
 import { Box } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
@@ -53,14 +53,24 @@ export default function Home() {
           <polyline points="6 9 12 15 18 9" />
         </svg>
       </Box>
+      <Box textAlign="center" paddingTop={"15%"} paddingX={"1em"}>
+        <Heading fontSize={{ base: "3xl", lg: "4xl" }} fontWeight="bold">
+          Our Packages
+        </Heading>
+        <Text color="gray.500" marginTop="0.5em" fontSize="md">
+          Choose the plan that fits your learning journey
+        </Text>
+      </Box>
       <Flex
-        paddingTop={"15%"}
+        paddingTop={"3em"}
         width="100vw"
-        marginY={"15%"}
+        marginY={"5%"}
         justifyContent={"space-evenly"}
         paddingX={{ base: "10%", lg: "none" }}
         flexDirection={"row"}
         overflowX={"scroll"}
+        overflowY={"visible"}
+        paddingBottom={"2em"}
         alignItems={{ base: "center", lg: "flex-start" }}
         gap={{ base: "2em", lg: "0" }}
       >

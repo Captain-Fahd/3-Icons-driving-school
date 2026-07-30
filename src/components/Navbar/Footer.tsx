@@ -11,7 +11,7 @@ const Footer = () => {
       <Box
         width={"100%"}
         height={"10%"}
-        padding={"1em"}
+        padding={"2em 1.5em"}
         backgroundColor={"green.600"}
         marginTop={"3em"}
         opacity={"0.8"}
@@ -66,7 +66,7 @@ const Footer = () => {
       <Box
         width={"100%"}
         height={"20%"}
-        padding={"1.3em"}
+        padding={"2.5em 3em"}
         backgroundColor={"green.600"}
         marginTop={"3em"}
         opacity={"0.8"}
