@@ -2,10 +2,13 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  output: "export",
   reactCompiler: true,
   reactStrictMode: true,
   devIndicators: false,
   images: {
+    // Static export has no image optimizer.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -16,5 +19,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-
-import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());

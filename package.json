@@ -6,17 +6,12 @@
     "build": "next build",
     "dev": "next dev",
     "start": "next start",
-    "lint": "eslint",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "lint": "eslint"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.34.0",
     "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.14.0",
-    "@opennextjs/cloudflare": "^1.19.11",
     "@vis.gl/react-google-maps": "^1.8.3",
     "next": "^16.2.9",
     "prettier": "^3.8.3",
@@ -33,7 +28,6 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.0",
-    "typescript": "^5",
-    "wrangler": "^4.100.0"
+    "typescript": "^5"
   }
 }
