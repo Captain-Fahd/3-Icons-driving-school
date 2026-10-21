@@ -1,4 +1,4 @@
-import { Box, Heading, HStack, Link, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, Image, Link, Text, VStack } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useWindowSize } from "@/components/WindowSize";
 
@@ -10,60 +10,63 @@ const Footer = () => {
     return (
       <Box
         width={"100%"}
-        height={"10%"}
-        padding={"2em 1.5em"}
+        padding={"1em"}
         backgroundColor={"green.600"}
         marginTop={"3em"}
         opacity={"0.8"}
       >
-        <HStack
-          justifyContent={"space-between"}
-          alignItems={"center"}
-          gap={"0.5em"}
-        >
-          <Heading color={"white"} textStyle={"md"}>
-            3-Icons Driving School
-          </Heading>
-          <VStack gap={"0.25em"}>
-            <Text color={"white"} textStyle={"2xs"}>
-              Copyright 3-Icons driving school 2026, all rights reserved©
-            </Text>
-            <Text color={"white"} textStyle={"2xs"}>
-              Powered by AccessibleTech
-            </Text>
-          </VStack>
-          <HStack wrap={"wrap"} gap={"0.5em"}>
-            <Link asChild color={"white"} fontSize={"xs"}>
-              <NextLink href={"/"} style={{ color: "white", fontSize: "12px" }}>
-                Home
-              </NextLink>
-            </Link>
-            <Link fontSize={"xs"} asChild color={"white"}>
-              <NextLink
-                href={"/about"}
-                style={{ color: "white", fontSize: "12px" }}
-              >
-                About
-              </NextLink>
-            </Link>
-            <Link asChild fontSize={"xs"} color={"white"}>
-              <NextLink
-                href={"/pricing"}
-                style={{ color: "white", fontSize: "12px" }}
-              >
-                Pricing
-              </NextLink>
-            </Link>
-            <Link asChild fontSize={"xs"} color={"white"}>
-              <NextLink
-                href={"/book"}
-                style={{ color: "white", fontSize: "12px" }}
-              >
-                Book
-              </NextLink>
-            </Link>
+        <VStack gap={"0.5em"}>
+          <HStack
+            width={"100%"}
+            justifyContent={"space-between"}
+            alignItems={"center"}
+          >
+            <NextLink href={"/"}>
+              <Image
+                src="/logo_small.png"
+                alt={"3 Icons driving school logo"}
+                height={"1.75em"}
+              />
+            </NextLink>
+            <HStack gap={"0.75em"}>
+              <Link asChild color={"white"} fontSize={"xs"}>
+                <NextLink
+                  href={"/"}
+                  style={{ color: "white", fontSize: "12px" }}
+                >
+                  Home
+                </NextLink>
+              </Link>
+              <Link fontSize={"xs"} asChild color={"white"}>
+                <NextLink
+                  href={"/about"}
+                  style={{ color: "white", fontSize: "12px" }}
+                >
+                  About
+                </NextLink>
+              </Link>
+              <Link asChild fontSize={"xs"} color={"white"}>
+                <NextLink
+                  href={"/pricing"}
+                  style={{ color: "white", fontSize: "12px" }}
+                >
+                  Pricing
+                </NextLink>
+              </Link>
+              <Link asChild fontSize={"xs"} color={"white"}>
+                <NextLink
+                  href={"/book"}
+                  style={{ color: "white", fontSize: "12px" }}
+                >
+                  Book
+                </NextLink>
+              </Link>
+            </HStack>
           </HStack>
-        </HStack>
+          <Text color={"white"} textStyle={"2xs"} textAlign={"center"}>
+            © 2026 3-Icons Driving School · Powered by AccessibleTech
+          </Text>
+        </VStack>
       </Box>
     );
   } else {
@@ -77,11 +80,19 @@ const Footer = () => {
         opacity={"0.8"}
       >
         <HStack justifyContent={"space-between"} alignItems={"center"}>
-          <Heading color={"white"} textStyle={"3xl"}>
-            3-Icons Driving School
-          </Heading>
+          <NextLink href={"/"}>
+            <Image
+              src="/logo_small.png"
+              alt={"3 Icons driving school logo"}
+              height={"3em"}
+            />
+          </NextLink>
           <VStack gap={"0.25em"}>
-            <Text color={"white"} textStyle={"2xs"} backgroundColor={"green.600"}>
+            <Text
+              color={"white"}
+              textStyle={"2xs"}
+              backgroundColor={"green.600"}
+            >
               © 2026 3-Icons Driving School. All rights reserved. Made in
               Melbourne
             </Text>
