@@ -1,5 +1,4 @@
 import {
-  Box,
   Field,
   Fieldset,
   Heading,
@@ -91,7 +90,13 @@ const BookingForm = () => {
 
   if (windowSize.width !== null && windowSize.width <= BREAKPOINT) {
     return (
-      <Box paddingY={"10em"} width={"100%"}>
+      <Flex
+        flexDirection={"column"}
+        alignItems={"center"}
+        paddingY={"10em"}
+        paddingX={"1em"}
+        width={"100%"}
+      >
         <Heading
           fontSize={"5xl"}
           fontWeight={"bold"}
@@ -110,8 +115,8 @@ const BookingForm = () => {
           justifySelf={"center"}
           gap={"3em"}
           flexDirection={"column"}
-          width={"40%"}
-          minWidth={"350px"}
+          width={"100%"}
+          maxWidth={"450px"}
           backgroundColor={"white"}
           boxShadow="md"
           borderRadius="20px"
@@ -251,7 +256,7 @@ const BookingForm = () => {
             </form>
           </Fieldset.Root>
         </Flex>
-      </Box>
+      </Flex>
     );
   }
   return (
