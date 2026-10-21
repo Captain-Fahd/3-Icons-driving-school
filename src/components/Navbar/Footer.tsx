@@ -1,4 +1,4 @@
-import { Box, Heading, HStack, Link, Text } from "@chakra-ui/react";
+import { Box, Heading, HStack, Link, Text, VStack } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useWindowSize } from "@/components/WindowSize";
 
@@ -24,9 +24,14 @@ const Footer = () => {
           <Heading color={"white"} textStyle={"md"}>
             3-Icons Driving School
           </Heading>
-          <Text color={"white"} textStyle={"2xs"}>
-            Copyright 3-Icons driving school 2026, all rights reserved©
-          </Text>
+          <VStack gap={"0.25em"}>
+            <Text color={"white"} textStyle={"2xs"}>
+              Copyright 3-Icons driving school 2026, all rights reserved©
+            </Text>
+            <Text color={"white"} textStyle={"2xs"}>
+              Powered by AccessibleTech
+            </Text>
+          </VStack>
           <HStack wrap={"wrap"} gap={"0.5em"}>
             <Link asChild color={"white"} fontSize={"xs"}>
               <NextLink href={"/"} style={{ color: "white", fontSize: "12px" }}>
@@ -75,10 +80,15 @@ const Footer = () => {
           <Heading color={"white"} textStyle={"3xl"}>
             3-Icons Driving School
           </Heading>
-          <Text color={"white"} textStyle={"2xs"} backgroundColor={"green.600"}>
-            © 2026 3-Icons Driving School. All rights reserved. Made in
-            Melbourne
-          </Text>
+          <VStack gap={"0.25em"}>
+            <Text color={"white"} textStyle={"2xs"} backgroundColor={"green.600"}>
+              © 2026 3-Icons Driving School. All rights reserved. Made in
+              Melbourne
+            </Text>
+            <Text color={"white"} textStyle={"2xs"}>
+              Powered by AccessibleTech
+            </Text>
+          </VStack>
           <HStack fontSize={"xs"}>
             <Link asChild color={"white"}>
               <NextLink href={"/"}>Home</NextLink>
