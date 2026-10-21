@@ -21,10 +21,8 @@ export default function Pricing() {
         <Heading
           textStyle={"4xl"}
           fontWeight={"bold"}
-          textAlign={"left"}
-          width={"19%"}
+          textAlign={"center"}
           marginBottom={"1em"}
-          minWidth={"300px"}
         >
           Our Lesson <Span color={"green.600"}>Packages</Span>
         </Heading>
@@ -42,10 +40,9 @@ export default function Pricing() {
         <Heading
           textStyle={"4xl"}
           fontWeight={"bold"}
-          width={"19%"}
-          marginTop={"1em"}
           textAlign={"center"}
-          minWidth={"300px"}
+          marginTop={"2em"}
+          marginBottom={"1em"}
         >
           Our <Span color={"green.600"}>Bundles</Span>
         </Heading>

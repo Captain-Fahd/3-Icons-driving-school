@@ -6,7 +6,8 @@
     "build": "next build",
     "dev": "next dev",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "homepage": "https://3iconsdrivingschool.com.au"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.34.0",
